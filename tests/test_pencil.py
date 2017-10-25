@@ -66,3 +66,10 @@ def test_sharpening_zero_length_does_nothing(pencil):
 
     assert pencil.length == 0
     assert pencil.durability == 0
+
+
+def test_eraser():
+    pencil = Pencil(durability=100)
+    pencil.write("How much wood would a woodchuck chuck if a woodchuck could chuck wood?")
+    pencil.erase("chuck")
+    assert pencil.paper == "How much wood would a woodchuck chuck if a woodchuck could       wood?"

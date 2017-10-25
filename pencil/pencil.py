@@ -27,3 +27,10 @@ class Pencil:
 
         self.durability = self.starting_durability
         self.length -= 1
+
+    def erase(self, text):
+        start_index = self.paper.rfind(text)
+        end_index = start_index + len(text)
+        replacement = " " * len(text)
+
+        self.paper = self.paper[0:start_index] + replacement + self.paper[end_index:]
