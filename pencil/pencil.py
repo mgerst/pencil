@@ -1,10 +1,11 @@
 class Pencil:
     DEFAULT_DURABILTY = 50
 
-    def __init__(self, durability=DEFAULT_DURABILTY):
+    def __init__(self, durability=DEFAULT_DURABILTY, length=10):
         self.paper = ""
         self.durability = durability
         self.starting_durability = durability
+        self.length = length
 
     def write(self, message):
         for char in message:
@@ -22,3 +23,4 @@ class Pencil:
 
     def sharpen(self):
         self.durability = self.starting_durability
+        self.length -= 1

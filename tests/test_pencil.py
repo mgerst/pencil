@@ -50,3 +50,9 @@ def test_sharpen_resets_durabilty(pencil):
     pencil.write("text")
     pencil.sharpen()
     assert pencil.durability == pencil.starting_durability
+
+
+def test_sharpen_reduces_length(pencil):
+    pencil.write("test")
+    pencil.sharpen()
+    assert pencil.length == 9
