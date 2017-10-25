@@ -8,7 +8,10 @@ class Pencil:
     def write(self, message):
         for char in message:
             cost = 1
-            if char.isupper():
+            if self.durability == 0:
+                cost = 0
+                char = " "
+            elif char.isupper():
                 cost = 2
             elif char == " " or char == "\n":
                 cost = 0

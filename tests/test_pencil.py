@@ -37,3 +37,10 @@ def test_writing_space_doesnt_degrade(pencil):
 def test_writing_newline_doesnt_degrade(pencil):
     pencil.write("value with\nnewline")
     assert pencil.durability == Pencil.DEFAULT_DURABILTY - 16
+
+
+def test_writing_past_durability_writes_space(pencil):
+    text = "a" * (Pencil.DEFAULT_DURABILTY + 1)
+    pencil.write(text)
+    assert pencil.durability == 0
+    assert pencil.paper[-1] == " " and pencil.paper[-2] == "a"
