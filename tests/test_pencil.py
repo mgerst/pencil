@@ -44,3 +44,9 @@ def test_writing_past_durability_writes_space(pencil):
     pencil.write(text)
     assert pencil.durability == 0
     assert pencil.paper[-1] == " " and pencil.paper[-2] == "a"
+
+
+def test_sharpen_resets_durabilty(pencil):
+    pencil.write("text")
+    pencil.sharpen()
+    assert pencil.durability == pencil.starting_durability
