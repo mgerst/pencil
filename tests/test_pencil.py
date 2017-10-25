@@ -114,3 +114,9 @@ def test_edit_longer_than_whitespace(pencil):
     pencil.edit("artichoke", 3)
     assert pencil.paper == "An artich@k@ay keeps the doctor away"
 
+
+def test_edit_degrades_pencil(pencil):
+    pencil.write("An       a day keeps the doctor away")
+    pencil.edit("apple", 3)
+    assert pencil.durability == pencil.starting_durability - 30
+

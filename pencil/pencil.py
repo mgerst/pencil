@@ -55,12 +55,22 @@ class Pencil:
         end_index = offset + len(text)
 
         replacement = ""
+        cost = 0
         for i in range(len(text)):
             start_index = offset + i
+
             if self.paper[start_index] == " ":
-                replacement += text[i]
+                replacement_char = text[i]
+                if text[i] != " ":
+                    cost += 1
+                elif text[i].isupper():
+                    cost += 2
             else:
-                replacement += "@"
+                replacement_char = "@"
+                cost += 1
+
+            replacement += replacement_char
 
         self.paper = self.paper[0:offset] + replacement + self.paper[end_index:]
+        self.durability -= cost
 
