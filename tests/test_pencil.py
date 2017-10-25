@@ -21,5 +21,11 @@ def test_pencil_writes_to_paper_twice(pencil):
 
 def test_writing_decreases_durability(pencil):
     pencil.write("text")
-    # Default is 50
-    assert pencil.durability == 46
+    # Starting point is 50
+    assert pencil.durability == 50 - 4
+
+
+def test_writing_caps_decreases_durability_by_2(pencil):
+    pencil.write("Text")
+    # Starting point is 50
+    assert pencil.durability == 50 - 5

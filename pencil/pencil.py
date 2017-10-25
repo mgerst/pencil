@@ -4,5 +4,10 @@ class Pencil:
         self.durability = durability
 
     def write(self, message):
-        self.paper += message
-        self.durability -= len(message)
+        for char in message:
+            cost = 1
+            if char.isupper():
+                cost = 2
+
+            self.paper += char
+            self.durability -= cost
