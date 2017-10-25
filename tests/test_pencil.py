@@ -56,3 +56,13 @@ def test_sharpen_reduces_length(pencil):
     pencil.write("test")
     pencil.sharpen()
     assert pencil.length == 9
+
+
+def test_sharpening_zero_length_does_nothing(pencil):
+    pencil.length = 0
+    pencil.durability = 0
+
+    pencil.sharpen()
+
+    assert pencil.length == 0
+    assert pencil.durability == 0

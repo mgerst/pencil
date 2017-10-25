@@ -22,5 +22,8 @@ class Pencil:
             self.durability -= cost
 
     def sharpen(self):
+        if self.length == 0:
+            return
+
         self.durability = self.starting_durability
         self.length -= 1
