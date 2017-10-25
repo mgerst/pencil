@@ -82,3 +82,9 @@ def test_erase_second_time():
     pencil.erase("chuck")
     assert pencil.paper == "How much wood would a woodchuck chuck if a wood      could       wood?"
 
+
+def test_eraser_degrades_when_used(pencil):
+    pencil.write("Buffalo Bill")
+    pencil.erase("Bill")
+    assert pencil.eraser_durability == pencil.ERASER_DURABILTY - 4
+

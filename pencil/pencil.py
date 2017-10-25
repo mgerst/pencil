@@ -1,11 +1,13 @@
 class Pencil:
     DEFAULT_DURABILTY = 50
+    ERASER_DURABILTY = 50
 
-    def __init__(self, durability=DEFAULT_DURABILTY, length=10):
+    def __init__(self, durability=DEFAULT_DURABILTY, length=10, eraser_durability=ERASER_DURABILTY):
         self.paper = ""
         self.durability = durability
         self.starting_durability = durability
         self.length = length
+        self.eraser_durability = eraser_durability
 
     def write(self, message):
         for char in message:
@@ -34,3 +36,4 @@ class Pencil:
         replacement = " " * len(text)
 
         self.paper = self.paper[0:start_index] + replacement + self.paper[end_index:]
+        self.eraser_durability -= len(text)
