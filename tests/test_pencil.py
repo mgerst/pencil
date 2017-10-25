@@ -73,3 +73,12 @@ def test_eraser():
     pencil.write("How much wood would a woodchuck chuck if a woodchuck could chuck wood?")
     pencil.erase("chuck")
     assert pencil.paper == "How much wood would a woodchuck chuck if a woodchuck could       wood?"
+
+
+def test_erase_second_time():
+    pencil = Pencil(durability=100)
+    pencil.write("How much wood would a woodchuck chuck if a woodchuck could chuck wood?")
+    pencil.erase("chuck")
+    pencil.erase("chuck")
+    assert pencil.paper == "How much wood would a woodchuck chuck if a wood      could       wood?"
+
