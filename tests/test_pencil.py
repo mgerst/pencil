@@ -3,7 +3,7 @@ import pytest
 from pencil import Pencil
 
 
-@pytest.mark.fixture
+@pytest.fixture
 def pencil():
     return Pencil()
 
@@ -17,3 +17,9 @@ def test_pencil_writes_to_paper_twice(pencil):
     pencil.write("She sells sea shells")
     pencil.write(" down by the sea shore")
     assert pencil.paper == "She sells sea shells down by the sea shore"
+
+
+def test_writing_decreases_durability(pencil):
+    pencil.write("text")
+    # Default is 50
+    assert pencil.durability == 46
