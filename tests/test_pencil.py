@@ -88,3 +88,9 @@ def test_eraser_degrades_when_used(pencil):
     pencil.erase("Bill")
     assert pencil.eraser_durability == pencil.ERASER_DURABILTY - 4
 
+
+def test_eraser_durabilty_ignores_spaces(pencil):
+    pencil.write("Buffalo Bill")
+    pencil.erase("o Bill")
+    assert pencil.eraser_durability == pencil.ERASER_DURABILTY - 5
+

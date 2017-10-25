@@ -33,7 +33,21 @@ class Pencil:
     def erase(self, text):
         start_index = self.paper.rfind(text)
         end_index = start_index + len(text)
-        replacement = " " * len(text)
+        replacement_length = len(text)
 
-        self.paper = self.paper[0:start_index] + replacement + self.paper[end_index:]
-        self.eraser_durability -= len(text)
+        for i in range(end_index, start_index, -1):
+            if self.eraser_durability == 0:
+                break
+
+            cost = 1
+            if text[-1] == " ":
+                cost = 0
+            text = text[:-1]
+
+            # Calcuate the offset from the start
+            i = i - start_index
+
+            # Replace the character and update the durability
+            self.paper = self.paper[0:start_index + i - 1] + " " + self.paper[start_index+i:]
+            self.eraser_durability -= cost
+
