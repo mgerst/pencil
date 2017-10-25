@@ -46,7 +46,7 @@ def test_writing_past_durability_writes_space(pencil):
     assert pencil.paper[-1] == " " and pencil.paper[-2] == "a"
 
 
-def test_sharpen_resets_durabilty(pencil):
+def test_sharpen_resets_durability(pencil):
     pencil.write("text")
     pencil.sharpen()
     assert pencil.durability == pencil.starting_durability
@@ -89,13 +89,13 @@ def test_eraser_degrades_when_used(pencil):
     assert pencil.eraser_durability == pencil.ERASER_DURABILTY - 4
 
 
-def test_eraser_durabilty_ignores_spaces(pencil):
+def test_eraser_durability_ignores_spaces(pencil):
     pencil.write("Buffalo Bill")
     pencil.erase("o Bill")
     assert pencil.eraser_durability == pencil.ERASER_DURABILTY - 5
 
 
-def test_earser_runs_stops_after_durability_runs_out(pencil):
+def test_eraser_runs_stops_after_durability_runs_out(pencil):
     pencil.eraser_durability = 3
     pencil.write("Buffalo Bill")
     pencil.erase("Bill")
