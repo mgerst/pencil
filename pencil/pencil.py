@@ -33,7 +33,6 @@ class Pencil:
     def erase(self, text):
         start_index = self.paper.rfind(text)
         end_index = start_index + len(text)
-        replacement_length = len(text)
 
         for i in range(end_index, start_index, -1):
             if self.eraser_durability == 0:
