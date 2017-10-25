@@ -108,3 +108,9 @@ def test_edit_at_location(pencil):
     pencil.edit("apple", 3)
     assert pencil.paper == "An apple a day keeps the doctor away"
 
+
+def test_edit_longer_than_whitespace(pencil):
+    pencil.write("An       a day keeps the doctor away")
+    pencil.edit("artichoke", 3)
+    assert pencil.paper == "An artich@k@ay keeps the doctor away"
+

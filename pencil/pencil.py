@@ -53,5 +53,14 @@ class Pencil:
 
     def edit(self, text, offset):
         end_index = offset + len(text)
-        self.paper = self.paper[0:offset] + text + self.paper[end_index:]
+
+        replacement = ""
+        for i in range(len(text)):
+            start_index = offset + i
+            if self.paper[start_index] == " ":
+                replacement += text[i]
+            else:
+                replacement += "@"
+
+        self.paper = self.paper[0:offset] + replacement + self.paper[end_index:]
 
