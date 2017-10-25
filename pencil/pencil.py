@@ -51,3 +51,7 @@ class Pencil:
             self.paper = self.paper[0:start_index + i - 1] + " " + self.paper[start_index+i:]
             self.eraser_durability -= cost
 
+    def edit(self, text, offset):
+        end_index = offset + len(text)
+        self.paper = self.paper[0:offset] + text + self.paper[end_index:]
+

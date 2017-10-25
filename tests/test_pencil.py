@@ -102,3 +102,9 @@ def test_earser_runs_stops_after_durability_runs_out(pencil):
     assert pencil.paper == "Buffalo B   "
     assert pencil.eraser_durability == 0
 
+
+def test_edit_at_location(pencil):
+    pencil.write("An       a day keeps the doctor away")
+    pencil.edit("apple", 3)
+    assert pencil.paper == "An apple a day keeps the doctor away"
+
