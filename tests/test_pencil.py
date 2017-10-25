@@ -21,21 +21,19 @@ def test_pencil_writes_to_paper_twice(pencil):
 
 def test_writing_decreases_durability(pencil):
     pencil.write("text")
-    # Starting point is 50
-    assert pencil.durability == 50 - 4
+    assert pencil.durability == Pencil.DEFAULT_DURABILTY - 4
 
 
 def test_writing_caps_decreases_durability_by_2(pencil):
     pencil.write("Text")
-    # Starting point is 50
-    assert pencil.durability == 50 - 5
+    assert pencil.durability == Pencil.DEFAULT_DURABILTY - 5
 
 
 def test_writing_space_doesnt_degrade(pencil):
     pencil.write("value with spaces")
-    assert pencil.durability == 50 - 15
+    assert pencil.durability == Pencil.DEFAULT_DURABILTY - 15
 
 
 def test_writing_newline_doesnt_degrade(pencil):
     pencil.write("value with\nnewline")
-    assert pencil.durability == 50 - 16
+    assert pencil.durability == Pencil.DEFAULT_DURABILTY - 16

@@ -1,5 +1,7 @@
 class Pencil:
-    def __init__(self, durability=50):
+    DEFAULT_DURABILTY = 50
+
+    def __init__(self, durability=DEFAULT_DURABILTY):
         self.paper = ""
         self.durability = durability
 
