@@ -3,4 +3,4 @@ class Pencil:
         self.paper = ""
 
     def write(self, message):
-        self.paper = message
+        self.paper += message
