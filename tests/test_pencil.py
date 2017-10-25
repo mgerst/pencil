@@ -120,3 +120,9 @@ def test_edit_degrades_pencil(pencil):
     pencil.edit("apple", 3)
     assert pencil.durability == pencil.starting_durability - 30
 
+
+def test_edit_stops_after_durability_runs_out(pencil):
+    pencil.write("An       a day keeps the doctor away")
+    pencil.durability = 3
+    pencil.edit("apple", 3)
+    assert pencil.paper == "An app   a day keeps the doctor away"
