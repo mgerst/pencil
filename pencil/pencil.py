@@ -8,6 +8,8 @@ class Pencil:
             cost = 1
             if char.isupper():
                 cost = 2
+            elif char == " " or char == "\n":
+                cost = 0
 
             self.paper += char
             self.durability -= cost

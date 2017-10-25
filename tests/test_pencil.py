@@ -29,3 +29,13 @@ def test_writing_caps_decreases_durability_by_2(pencil):
     pencil.write("Text")
     # Starting point is 50
     assert pencil.durability == 50 - 5
+
+
+def test_writing_space_doesnt_degrade(pencil):
+    pencil.write("value with spaces")
+    assert pencil.durability == 50 - 15
+
+
+def test_writing_newline_doesnt_degrade(pencil):
+    pencil.write("value with\nnewline")
+    assert pencil.durability == 50 - 16
