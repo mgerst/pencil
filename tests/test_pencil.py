@@ -21,22 +21,22 @@ def test_pencil_writes_to_paper_twice(pencil):
 
 def test_writing_decreases_durability(pencil):
     pencil.write("text")
-    assert pencil.durability == Pencil.DEFAULT_DURABILTY - 4
+    assert pencil.durability == pencil.starting_durability - 4
 
 
 def test_writing_caps_decreases_durability_by_2(pencil):
     pencil.write("Text")
-    assert pencil.durability == Pencil.DEFAULT_DURABILTY - 5
+    assert pencil.durability == pencil.starting_durability - 5
 
 
 def test_writing_space_doesnt_degrade(pencil):
     pencil.write("value with spaces")
-    assert pencil.durability == Pencil.DEFAULT_DURABILTY - 15
+    assert pencil.durability == pencil.starting_durability - 15
 
 
 def test_writing_newline_doesnt_degrade(pencil):
     pencil.write("value with\nnewline")
-    assert pencil.durability == Pencil.DEFAULT_DURABILTY - 16
+    assert pencil.durability == pencil.starting_durability - 16
 
 
 def test_writing_past_durability_writes_space(pencil):
