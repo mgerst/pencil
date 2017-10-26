@@ -1,3 +1,5 @@
+This is my solution to the [Pencil Durability Kata](https://github.com/PillarTechnology/kata-pencil-durability).
+
 Running
 =======
 **Note**: It is recommended to do the following commands inside a virtualenv. (`virtualenv venv && source venv/bin/activate`)
